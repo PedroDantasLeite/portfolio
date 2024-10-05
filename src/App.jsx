@@ -21,6 +21,38 @@ function App() {
           </button>
         </span>
       </div>
+      <div className="body">
+        <div className="bodySection">
+          <h2>Experiência</h2>
+          <div className="bodySectionContent">
+            <div className="bodySectionItem">
+              <h3>Desenvolvedor Full Stack</h3>
+              <h4>Empresa</h4>
+              <p>Descrição</p>
+            </div>
+          </div>
+        </div>
+        <div className="bodySection">
+          <h2>Projetos</h2>
+          <div className="bodySectionContent">
+            <div className="bodySectionItem">
+              <h3>Projeto 1</h3>
+              <h4>Empresa</h4>
+              <p>Descrição</p>
+            </div>
+          </div>
+        </div>
+        <div className="bodySection">
+          <h2>Formação</h2>
+          <div className="bodySectionContent">
+            <div className="bodySectionItem">
+              <h3>Curso 1</h3>
+              <h4>Empresa</h4>
+              <p>Descrição</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
