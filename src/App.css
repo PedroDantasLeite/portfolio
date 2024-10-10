@@ -26,3 +26,27 @@
     filter: invert(0)
   }
 }
+
+
+.bodySectionHeader {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.bodySectionFlex {
+  display: flex;
+  gap: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.bodySection {
+  margin-left: 25%;
+  margin-right: 25%;
+
+}
+
+li {
+  text-align: justify;
+}
