@@ -49,6 +49,8 @@ input {
   font-family: inherit;
   background-color: #f6e4d2;
   transition: border-color 0.25s;
+  font-family: inherit;
+  color: #213547
 }
 
 form {
