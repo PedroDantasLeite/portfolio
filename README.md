@@ -1,3 +1,3 @@
-# portfolio
+# Professional Portfolio
 
-Portfolio
+Simple portfolio utilizing HTML and CSS
