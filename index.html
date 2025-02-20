@@ -21,22 +21,22 @@
           <a
             href="https://drive.google.com/file/d/1c3TB_YTU0rk4y2nnjn8uRfZptIVNDJ_n/view?usp=sharing"
           >
-            <button title="Resume">
+            <button title="Resume" target="_blank">
               <img src="public/icons8-resume-100.png" alt="Resume" />
             </button>
           </a>
           <a href="https://www.linkedin.com/in/pedro-leite-820728219/">
-            <button title="Linkedin">
+            <button title="Linkedin" target="_blank">
               <img src="public/linkedin-icon-2.svg" alt="LinkedIn" />
             </button>
           </a>
           <a href="https://github.com/PedroDantasLeite">
-            <button title="Github">
+            <button title="Github" target="_blank">
               <img src="public/github-icon-2.svg" alt="GitHub" />
             </button>
           </a>
           <a href="https://leetcode.com/u/kHvx8Nn0tA/">
-            <button title="Leetcode">
+            <button title="Leetcode" target="_blank">
               <img src="public/leetcode-svgrepo-com.svg" alt="Leetcode" />
             </button>
           </a>
@@ -48,11 +48,20 @@
           <div class="bodySectionContent">
             <h2>Attended Events</h2>
             <div class="bodySectionFlex">
-              <img class="eventImg" src="public/Campus_Party_New_Logo.png" />
-              <img class="eventImg" src="public/branding-tdc.png" />
+              <img
+                class="eventImg"
+                src="public/Campus_Party_New_Logo.png"
+                alt="Campus Party Logo"
+              />
+              <img
+                class="eventImg"
+                src="public/branding-tdc.png"
+                alt="The Developers Conference Logo"
+              />
               <img
                 class="eventImg"
                 src="public/small_recnplay2_e445948ad6.png"
+                alt="Rec'n Play Logo"
               />
             </div>
           </div>
@@ -89,17 +98,27 @@
           <div class="bodySectionContent">
             <h2>Skills & Frameworks</h2>
             <div class="bodySectionFlexSkills">
-              <img class="frameworkImg" src="public/React-icon.svg.png" />
-              <img class="frameworkImg" src="public/Ruby_logo.png" />
-              <img class="frameworkImg" src="public/python.png" />
+              <img
+                class="frameworkImg"
+                src="public/React-icon.svg.png"
+                alt="React"
+              />
+              <img class="frameworkImg" src="public/Ruby_logo.png" alt="Ruby" />
+              <img class="frameworkImg" src="public/python.png" alt="Python" />
               <img
                 class="frameworkImg"
                 src="public/Typescript_logo_2020.svg.png"
+                alt="Typescript"
               />
-              <img class="frameworkImg" src="public/github-icon-2.svg" />
+              <img
+                class="frameworkImg"
+                src="public/github-icon-2.svg"
+                alt="Github"
+              />
               <img
                 class="frameworkImg"
                 src="public/Amazon_Web_Services_Logo.svg.png"
+                alt="AWS"
               />
             </div>
           </div>
@@ -173,7 +192,11 @@
               Custom React screensaver for spotify, using the Spotify API. Very
               fun to work with!
             </div>
-            <img class="spotify" src="public/whatsapp.jpeg" />
+            <img
+              class="spotify"
+              src="public/whatsapp.jpeg"
+              alt="Wallpapertify"
+            />
             <h4>Undergraduate thesis on AI Ethics</h4>
             <div class="bodySectionItem">
               At the moment, I'm writting a undegraduate thesis on AI Ethics, a
@@ -195,16 +218,20 @@
               discussions on the topic of Software Infrastucture.
             </div>
           </div>
-          <img class="cat" src="public/cat-spinning.gif" />
+          <img
+            class="cat"
+            src="public/cat-spinning.gif"
+            alt="Spinning Cat Walter"
+          />
         </div>
       </div>
     </div>
 
     <script>
       function getRandomBeigeColor() {
-        const r = Math.floor(Math.random() * 30) + 220; // Random value between 220 and 250 for a warmer look
-        const g = Math.floor(Math.random() * 30) + 200; // Random value between 200 and 230
-        const b = Math.floor(Math.random() * 50) + 150; // Random value between 150 and 200
+        const r = Math.floor(Math.random() * 30) + 220;
+        const g = Math.floor(Math.random() * 30) + 200;
+        const b = Math.floor(Math.random() * 50) + 150;
         return `rgb(${r}, ${g}, ${b})`;
       }
 
