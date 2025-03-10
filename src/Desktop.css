@@ -1,0 +1,11 @@
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("/public/background1080.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(20, 1fr);
+  padding: 20px;
+}
