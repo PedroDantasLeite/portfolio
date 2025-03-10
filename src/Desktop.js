@@ -1,17 +1,34 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Desktop.css";
-import Draggable from "react-draggable"; // Both at the same time
 import Taskbar from "./Taskbar";
 import Icon from "./Icon";
 import { icons } from "./files";
 
 const Desktop = () => {
   const iconRefs = useRef(icons.map(() => React.createRef()));
+  const [selectedIcon, setSelectedIcon] = useState(null);
+
+  const handleIconClick = (index) => {
+    setSelectedIcon(index);
+  };
+
+  const handleDesktopClick = (event) => {
+    if (!event.target.closest(".icon")) {
+      setSelectedIcon(null);
+    }
+  };
 
   return (
-    <div className="desktop">
+    <div className="desktop" onClick={handleDesktopClick}>
       {icons.map((icon, index) => (
-        <Icon name={icon.name} icon={icon.icon} ref={iconRefs.current[index]} />
+        <Icon
+          key={index}
+          name={icon.name}
+          icon={icon.icon}
+          ref={iconRefs.current[index]}
+          selected={selectedIcon === index}
+          onClick={() => handleIconClick(index)}
+        />
       ))}
       <Taskbar />
     </div>
