@@ -1,3 +1,39 @@
 .window {
   position: absolute;
 }
+
+.window-body {
+  margin-top: 0px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 0px;
+}
+
+.actions {
+  display: flex;
+  background-color: #ede9d3;
+  border-bottom: 2px solid #dcd7c7;
+  & div {
+    display: flex;
+    align-items: center;
+    padding: 2px 7px;
+    border: 1px solid transparent;
+  }
+  & div:hover {
+    border-left: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
+    border-right: 1px solid #7a7a7a;
+    border-bottom: 1px solid #7a7a7a;
+    user-select: none;
+  }
+  & div:active {
+    border-left: 1px solid #7a7a7a;
+    border-top: 1px solid #7a7a7a;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+  }
+}
+
+.localizer {
+  display: flex;
+}

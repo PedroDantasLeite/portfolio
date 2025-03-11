@@ -52,7 +52,7 @@ const Desktop = () => {
         />
       ))}
 
-      <Taskbar />
+      <Taskbar programs={openedItems} />
     </div>
   );
 };

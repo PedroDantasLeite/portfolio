@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Taskbar.css";
 
-const Taskbar = () => {
+const Taskbar = ({ programs }) => {
   const [time] = useState(
     new Date().toLocaleTimeString([], {
       hour: "numeric",
@@ -12,8 +12,14 @@ const Taskbar = () => {
 
   return (
     <footer className="taskbar">
-      <div>
+      <div className="left">
         <img className="start" src="/start-button.png" alt="start" />
+        {programs.map((program, index) => (
+          <div key={index} className="taskbar-item">
+            <img src={program.icon} alt={program.name} />
+            {program.name}
+          </div>
+        ))}
       </div>
       <div className="right">
         <img src="/sound.ico" alt="sound" />

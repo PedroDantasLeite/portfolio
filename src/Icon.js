@@ -11,8 +11,15 @@ const Icon = ({ name, icon, ref, selected, onClick, onDoubleClick }) => {
         onClick={onClick}
         onDoubleClick={onDoubleClick}
       >
-        <img className={`icon-img ${selected ? "dim" : ""}`} src={icon} />
-        <div className="icon-label">{name}</div>
+        <img
+          className={`icon-img ${selected ? "dim" : ""}`}
+          src={icon}
+          alt="icon"
+          style={{ userSelect: "none" }}
+        />
+        <div className="icon-label" style={{ userSelect: "none" }}>
+          {name}
+        </div>
       </div>
     </div>
   );
