@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Taskbar.css";
 
-const Taskbar = ({ programs }) => {
+const Taskbar = ({ programs, focusedProgram, setFocusedProgram }) => {
   const [time] = useState(
     new Date().toLocaleTimeString([], {
       hour: "numeric",
@@ -15,7 +15,13 @@ const Taskbar = ({ programs }) => {
       <div className="left">
         <img className="start" src="/start-button.png" alt="start" />
         {programs.map((program, index) => (
-          <div key={index} className="taskbar-item">
+          <div
+            key={index}
+            className={`taskbar-item ${
+              focusedProgram === program.name ? "focused" : ""
+            }`}
+            onClick={() => setFocusedProgram(program.name)}
+          >
             <img src={program.icon} alt={program.name} />
             {program.name}
           </div>

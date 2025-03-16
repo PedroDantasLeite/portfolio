@@ -2,6 +2,7 @@
   display: inline-block;
   color: white;
   text-shadow: black 0px 1px 1px;
+  font-size: 12px;
 }
 
 .icon {
@@ -14,7 +15,7 @@
   color: white;
   padding: 2px;
   margin: -2px;
-  width: 100%;
+  width: 80%;
 }
 
 .icon-img.dim {

@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./Program.css";
 import Resume from "./Resume";
 
-const Program = ({ name, contents, onClose }) => {
+const Program = ({
+  name,
+  icon,
+  contents,
+  folderDetails = true,
+  onClose,
+  setFocusedProgram,
+  focusedProgram,
+}) => {
   const [position, setPosition] = useState({
     x: window.innerWidth / 2 - 150,
     y: window.innerHeight / 2 - 150,
@@ -12,6 +20,7 @@ const Program = ({ name, contents, onClose }) => {
   const [lastMousePosition, setLastMousePosition] = useState({ x: 0, y: 0 });
 
   const handleMouseDown = (e) => {
+    setFocusedProgram(name);
     setIsDragging(true);
     setDragStart({ x: e.clientX - position.x, y: e.clientY - position.y });
     setLastMousePosition({ x: e.clientX, y: e.clientY });
@@ -21,7 +30,7 @@ const Program = ({ name, contents, onClose }) => {
     if (isDragging) {
       const dx = e.clientX - lastMousePosition.x;
       const dy = e.clientY - lastMousePosition.y;
-      const threshold = 5; // Adjust this value to change sensitivity
+      const threshold = 5;
 
       if (Math.abs(dx) > threshold || Math.abs(dy) > threshold) {
         setPosition({
@@ -67,32 +76,54 @@ const Program = ({ name, contents, onClose }) => {
 
   return (
     <div
-      className="window"
+      className={`window ${focusedProgram !== name ? "unfocused" : ""}`}
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,
-        position: "absolute",
       }}
       onMouseDown={handleMouseDown}
     >
-      <div className="title-bar" onMouseDown={handleMouseDown}>
+      <div
+        className={`title-bar-background ${
+          focusedProgram !== name ? "unfocused" : ""
+        } `}
+      />
+      <header className="title-bar" onMouseDown={handleMouseDown}>
         <div className="title-bar-text" style={{ userSelect: "none" }}>
+          <img src={icon} />
           {name}
         </div>
         <div className="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close" onClick={onClose}></button>
+          <button aria-label="Minimize">
+            <img src="/small.png" />
+          </button>
+          <button aria-label="Maximize">
+            <img src="/big.png" />
+          </button>
+          <button aria-label="Close" onClick={onClose}>
+            <img src="/close.png" />
+          </button>
         </div>
-      </div>
+      </header>
 
       <div className="window-body">
         <div className="actions">
-          <div>File</div>
-          <div>Edit</div>
-          <div>View</div>
-          <div>Help</div>
+          <div className="com__function_bar">
+            <div>File</div>
+            <div>Edit</div>
+            <div>View</div>
+            <div>Help</div>
+          </div>
+          <img src="/windows-tab.png" />
         </div>
+        {folderDetails && (
+          <div className="folder-details">
+            <img src="/arrow.png" />
+            <p>Back</p>
+            <div className="com__function_bar__arrow" />
+            <img src="/arrow.png" style={{ transform: "scaleX(-1)" }} />
+          </div>
+        )}
 
         {renderContent()}
       </div>

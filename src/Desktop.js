@@ -9,12 +9,14 @@ const Desktop = () => {
   const iconRefs = useRef(icons.map(() => React.createRef()));
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [openedItems, setOpenedItems] = useState([]);
+  const [focusedProgram, setFocusedProgram] = useState(null);
 
   const handleIconClick = (index) => {
     setSelectedIcon(index);
   };
 
-  const handleIconDoubleClick = (index) => {
+  const handleIconDoubleClick = (index, name) => {
+    setFocusedProgram(name);
     const icon = icons[index];
     setOpenedItems([...openedItems, icon]);
   };
@@ -39,7 +41,7 @@ const Desktop = () => {
           ref={iconRefs.current[index]}
           selected={selectedIcon === index}
           onClick={() => handleIconClick(index)}
-          onDoubleClick={() => handleIconDoubleClick(index)}
+          onDoubleClick={() => handleIconDoubleClick(index, icon.name)}
         />
       ))}
 
@@ -47,12 +49,19 @@ const Desktop = () => {
         <Program
           key={index}
           name={item.name}
+          icon={item.icon}
           contents={item.contents}
           onClose={() => handleCloseItem(index)}
+          setFocusedProgram={(name) => setFocusedProgram(name)}
+          focusedProgram={focusedProgram}
         />
       ))}
 
-      <Taskbar programs={openedItems} />
+      <Taskbar
+        programs={openedItems}
+        focusedProgram={focusedProgram}
+        setFocusedProgram={(name) => setFocusedProgram(name)}
+      />
     </div>
   );
 };
