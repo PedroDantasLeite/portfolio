@@ -93,7 +93,11 @@ const Program = ({
           <img src={icon} />
           {name}
         </div>
-        <div className="title-bar-controls">
+        <div
+          className={`title-bar-controls ${
+            focusedProgram !== name ? "unfocused" : ""
+          }`}
+        >
           <button aria-label="Minimize">
             <img src="/small.png" />
           </button>
@@ -122,6 +126,16 @@ const Program = ({
             <p>Back</p>
             <div className="com__function_bar__arrow" />
             <img src="/arrow.png" style={{ transform: "scaleX(-1)" }} />
+            <div className="com__function_bar__arrow" />
+            <img src="/yeah.png" />
+            <div className="com__function_bar__separate" />
+            <img src="/lupa.ico" />
+            <p>Search</p>
+            <img src="/folder_clean.ico" />
+            <p>Folders</p>
+            <div className="com__function_bar__separate" />
+            <img src="/pastinha.ico" />
+            <div className="com__function_bar__arrow" />
           </div>
         )}
 

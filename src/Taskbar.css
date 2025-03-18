@@ -78,6 +78,7 @@
   flex: 1 1 0%;
   margin-top: 2px;
   gap: 0.25rem;
+  user-select: none;
   & img {
     height: 15px;
     width: 15px;
@@ -86,6 +87,14 @@
     background-color: rgb(30, 82, 183);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px 1px inset,
       rgba(0, 0, 0, 0.7) 1px 0px 1px inset;
+  }
+  &:hover {
+    background-color: rgb(53, 118, 243);
+    &:active {
+      background-color: rgb(30, 82, 183);
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px 1px inset,
+        rgba(0, 0, 0, 0.7) 1px 0px 1px inset;
+    }
   }
 }
 

@@ -63,6 +63,7 @@
   gap: 4px;
   align-items: center;
   font-family: "Noto Sans";
+  margin-left: 2px;
   & img {
     width: 1rem;
   }
@@ -106,7 +107,9 @@
   border-top: 1px solid white;
   flex-shrink: 0;
   & img {
-    width: 1.25rem;
+    width: 1.35rem;
+    margin-left: 4px;
+    margin-right: 2px;
   }
 }
 
@@ -204,4 +207,21 @@
   display: flex;
   align-items: center;
   gap: 2px;
+  &.unfocused * img {
+    opacity: 0.7;
+  }
+  & img:hover {
+    filter: brightness(1.2);
+    &:active {
+      filter: brightness(0.8);
+    }
+  }
+}
+
+.com__function_bar__separate {
+  content: "";
+  height: 2rem;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0px 2px;
 }
