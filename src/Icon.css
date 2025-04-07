@@ -13,9 +13,8 @@
 .icon.selected .icon-label {
   background-color: rgb(11, 97, 255);
   color: white;
-  padding: 2px;
-  margin: -2px;
-  width: 80%;
+  padding: 4px;
+  margin: -4px;
 }
 
 .icon-img.dim {

@@ -10,6 +10,8 @@ const Program = ({
   onClose,
   setFocusedProgram,
   focusedProgram,
+  style,
+  address = "address",
 }) => {
   const [position, setPosition] = useState({
     x: window.innerWidth / 2 - 150,
@@ -80,6 +82,7 @@ const Program = ({
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,
+        ...style,
       }}
       onMouseDown={handleMouseDown}
     >
@@ -138,6 +141,18 @@ const Program = ({
             <div className="com__function_bar__arrow" />
           </div>
         )}
+        <div className="address">
+          <p>Address</p>
+          <span className="address_bar">
+            <div className="leftside">
+              <img src={icon} />
+              <p>{address}</p>
+            </div>
+            <div className="rightside">
+              <img src="/little-down-arrow.png" />
+            </div>
+          </span>
+        </div>
 
         {renderContent()}
       </div>

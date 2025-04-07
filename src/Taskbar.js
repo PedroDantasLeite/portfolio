@@ -9,11 +9,31 @@ const Taskbar = ({ programs, focusedProgram, setFocusedProgram }) => {
       hour12: true,
     })
   );
+  const [startButtonState, setStartButtonState] = useState("default"); // default, hover, pressed
+
+  const getStartButtonSrc = () => {
+    switch (startButtonState) {
+      case "hover":
+        return "/start-button-hover.png";
+      case "pressed":
+        return "/start-button-pressed.png";
+      default:
+        return "/start-button.png";
+    }
+  };
 
   return (
     <footer className="taskbar">
       <div className="left">
-        <img className="start" src="/start-button.png" alt="start" />
+        <img
+          className="start"
+          src={getStartButtonSrc()}
+          alt="start"
+          onMouseEnter={() => setStartButtonState("hover")}
+          onMouseLeave={() => setStartButtonState("default")}
+          onMouseDown={() => setStartButtonState("pressed")}
+          onMouseUp={() => setStartButtonState("hover")}
+        />
         {programs.map((program, index) => (
           <div
             key={index}

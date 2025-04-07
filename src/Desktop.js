@@ -18,7 +18,9 @@ const Desktop = () => {
   const handleIconDoubleClick = (index, name) => {
     setFocusedProgram(name);
     const icon = icons[index];
-    setOpenedItems([...openedItems, icon]);
+    if (!openedItems.some((item) => item.name === icon.name)) {
+      setOpenedItems([...openedItems, icon]);
+    }
   };
 
   const handleDesktopClick = (event) => {
@@ -54,6 +56,7 @@ const Desktop = () => {
           onClose={() => handleCloseItem(index)}
           setFocusedProgram={(name) => setFocusedProgram(name)}
           focusedProgram={focusedProgram}
+          style={{ zIndex: focusedProgram === item.name ? 1000 : index }}
         />
       ))}
 
