@@ -1,0 +1,37 @@
+.sidebar-card {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sidebar-card-header {
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  height: 23px;
+  padding-left: 11px;
+  padding-right: 2px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    rgb(240, 240, 255) 0px,
+    rgb(240, 240, 255) 30%,
+    rgb(168, 188, 255) 100%
+  );
+  font-weight: 700;
+  color: rgb(12, 50, 125);
+  flex: 1 1 0%;
+  font-size: 11px;
+}
+
+.sidebar-card-content {
+  padding: 5px 10px;
+  background: rgba(198, 211, 255, 0.87)
+    linear-gradient(
+      to right,
+      rgb(180, 200, 251) 0%,
+      rgb(164, 185, 251) 50%,
+      rgb(180, 200, 251) 100%
+    );
+}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Program.css";
 import Resume from "./Resume";
+import SidebarCard from "./SidebarCard";
+import { sidebarCards } from "./constants";
 
 const Program = ({
   name,
@@ -142,7 +144,7 @@ const Program = ({
           </div>
         )}
         <div className="address">
-          <p>Address</p>
+          <p className="addressLabel">Address</p>
           <span className="address_bar">
             <div className="leftside">
               <img src={icon} />
@@ -152,9 +154,17 @@ const Program = ({
               <img src="/little-down-arrow.png" />
             </div>
           </span>
+          <img className="square-arrow" src="/square-arrow.png" />
+          <p>Go</p>
         </div>
-
-        {renderContent()}
+        <div className="content">
+          <div className="content-sidebar">
+            {sidebarCards.map((card, index) => (
+              <SidebarCard key={index} title={card.title} rows={card.rows} />
+            ))}
+          </div>
+          {renderContent()}
+        </div>
       </div>
     </div>
   );

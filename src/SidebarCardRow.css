@@ -1,0 +1,11 @@
+.sidebar-card-row {
+  font-size: 10px;
+  line-height: 14px;
+  color: rgb(12, 50, 125);
+  display: flex;
+  gap: 4px;
+}
+
+.sidebar-card-icon {
+  width: 1rem;
+}
