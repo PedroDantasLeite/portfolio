@@ -3,11 +3,11 @@ const systemTask = {
   rows: [
     {
       label: "Add or Remove Programs",
-      icon: "system-icon",
+      icon: "./cd-box.ico",
     },
     {
       label: "Change a Setting",
-      icon: "system-icon",
+      icon: "./little-board.ico",
     },
   ],
 };
@@ -17,19 +17,19 @@ const otherPlaces = {
   rows: [
     {
       label: "My Network Places",
-      icon: "control-panel-icon",
+      icon: "./pc-world.ico",
     },
     {
       label: "My Documents",
-      icon: "file-explorer-icon",
+      icon: "filed-up-folder.ico",
     },
     {
       label: "Shared Documents",
-      icon: "file-explorer-icon",
+      icon: "./tiny-folder.ico",
     },
     {
       label: "Control Panel",
-      icon: "control-panel-icon",
+      icon: "./lil-pencil-writting.ico",
     },
   ],
 };

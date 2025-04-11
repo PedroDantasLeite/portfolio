@@ -34,4 +34,7 @@
       rgb(164, 185, 251) 50%,
       rgb(180, 200, 251) 100%
     );
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
 }

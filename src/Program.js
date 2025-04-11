@@ -10,6 +10,7 @@ const Program = ({
   contents,
   folderDetails = true,
   onClose,
+  onMinimize,
   setFocusedProgram,
   focusedProgram,
   style,
@@ -103,7 +104,7 @@ const Program = ({
             focusedProgram !== name ? "unfocused" : ""
           }`}
         >
-          <button aria-label="Minimize">
+          <button aria-label="Minimize" onClick={onMinimize}>
             <img src="/small.png" />
           </button>
           <button aria-label="Maximize">
@@ -154,7 +155,7 @@ const Program = ({
               <img src="/little-down-arrow.png" />
             </div>
           </span>
-          <img className="square-arrow" src="/square-arrow.png" />
+          <img className="square-arrow" src="/square-arrow.ico" />
           <p>Go</p>
         </div>
         <div className="content">

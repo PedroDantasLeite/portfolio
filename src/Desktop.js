@@ -19,7 +19,7 @@ const Desktop = () => {
     setFocusedProgram(name);
     const icon = icons[index];
     if (!openedItems.some((item) => item.name === icon.name)) {
-      setOpenedItems([...openedItems, icon]);
+      setOpenedItems([...openedItems, { ...icon, minimized: false }]);
     }
   };
 
@@ -31,6 +31,23 @@ const Desktop = () => {
 
   const handleCloseItem = (index) => {
     setOpenedItems(openedItems.filter((_, i) => i !== index));
+  };
+
+  const handleMinimizeItem = (name) => {
+    setOpenedItems(
+      openedItems.map((item) =>
+        item.name === name ? { ...item, minimized: true } : item
+      )
+    );
+  };
+
+  const handleRestoreItem = (name) => {
+    setOpenedItems(
+      openedItems.map((item) =>
+        item.name === name ? { ...item, minimized: false } : item
+      )
+    );
+    setFocusedProgram(name);
   };
 
   return (
@@ -47,23 +64,28 @@ const Desktop = () => {
         />
       ))}
 
-      {openedItems.map((item, index) => (
-        <Program
-          key={index}
-          name={item.name}
-          icon={item.icon}
-          contents={item.contents}
-          onClose={() => handleCloseItem(index)}
-          setFocusedProgram={(name) => setFocusedProgram(name)}
-          focusedProgram={focusedProgram}
-          style={{ zIndex: focusedProgram === item.name ? 1000 : index }}
-        />
-      ))}
+      {openedItems.map(
+        (item, index) =>
+          !item.minimized && (
+            <Program
+              key={index}
+              name={item.name}
+              icon={item.icon}
+              contents={item.contents}
+              onClose={() => handleCloseItem(index)}
+              onMinimize={() => handleMinimizeItem(item.name)}
+              setFocusedProgram={(name) => setFocusedProgram(name)}
+              focusedProgram={focusedProgram}
+              style={{ zIndex: focusedProgram === item.name ? 1000 : index }}
+            />
+          )
+      )}
 
       <Taskbar
         programs={openedItems}
         focusedProgram={focusedProgram}
         setFocusedProgram={(name) => setFocusedProgram(name)}
+        onRestore={handleRestoreItem}
       />
     </div>
   );

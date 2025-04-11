@@ -6,6 +6,12 @@
   gap: 4px;
 }
 
+.sidebar-card-row:hover {
+  cursor: pointer;
+  color: rgb(43, 114, 255);
+  text-decoration: underline;
+}
+
 .sidebar-card-icon {
-  width: 1rem;
+  width: 0.8rem;
 }
