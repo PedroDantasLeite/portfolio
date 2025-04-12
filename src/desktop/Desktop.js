@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import "./Desktop.css";
 import Taskbar from "./Taskbar";
 import Icon from "./Icon";
-import Program from "./Program";
-import { icons } from "./files";
+import Program from "../program/Program";
+import { icons } from "../constants";
 
 const Desktop = () => {
   const iconRefs = useRef(icons.map(() => React.createRef()));
@@ -18,9 +18,11 @@ const Desktop = () => {
   const handleIconDoubleClick = (index, name) => {
     setFocusedProgram(name);
     const icon = icons[index];
-    if (!openedItems.some((item) => item.name === icon.name)) {
-      setOpenedItems([...openedItems, { ...icon, minimized: false }]);
-    }
+    const existingItem = openedItems.find((item) => item.name === icon.name);
+
+    existingItem
+      ? existingItem.minimized && handleRestoreItem(icon.name)
+      : setOpenedItems([...openedItems, { ...icon, minimized: false }]);
   };
 
   const handleDesktopClick = (event) => {
@@ -77,6 +79,8 @@ const Desktop = () => {
               setFocusedProgram={(name) => setFocusedProgram(name)}
               focusedProgram={focusedProgram}
               style={{ zIndex: focusedProgram === item.name ? 1000 : index }}
+              address={item.address}
+              completeHeader={item.completeHeader}
             />
           )
       )}

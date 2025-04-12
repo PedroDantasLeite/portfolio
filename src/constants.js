@@ -1,3 +1,5 @@
+import Resume from "./contents/Resume";
+
 const systemTask = {
   title: "System Tasks",
   rows: [
@@ -35,3 +37,38 @@ const otherPlaces = {
 };
 
 export const sidebarCards = [systemTask, otherPlaces];
+
+export const icons = [
+  {
+    name: "Projects",
+    icon: "./file.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\Projects",
+    contents: (
+      <div className="projects">
+        <h1>Projects</h1>
+      </div>
+    ),
+  },
+  {
+    name: "Resume",
+    icon: "./text.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\Resume",
+    contents: <Resume />,
+  },
+  {
+    name: "About Me",
+    icon: "./file.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\About Me",
+    contents: (
+      <div className="projects">
+        <h1>About Me</h1>
+      </div>
+    ),
+  },
+  {
+    name: "Paint",
+    icon: "./paint.png",
+    contents: <iframe src="https://jspaint.app" width="800px" height="500px" />,
+    completeHeader: false,
+  },
+];

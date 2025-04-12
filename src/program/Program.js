@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./Program.css";
-import Resume from "./Resume";
+import Resume from "../contents/Resume";
 import SidebarCard from "./SidebarCard";
-import { sidebarCards } from "./constants";
+import { sidebarCards } from "../constants";
 
 const Program = ({
   name,
   icon,
   contents,
-  folderDetails = true,
   onClose,
   onMinimize,
   setFocusedProgram,
   focusedProgram,
   style,
-  address = "address",
+  address,
+  completeHeader = true,
 }) => {
   const [position, setPosition] = useState({
     x: window.innerWidth / 2 - 150,
@@ -66,19 +66,6 @@ const Program = ({
     };
   }, [isDragging]);
 
-  const renderContent = () => {
-    switch (name) {
-      case "Resume":
-        return <Resume />;
-      case "website":
-        return <iframe src={contents} width="100%" height="100%"></iframe>;
-      case "folder":
-        return <div>{contents}</div>;
-      default:
-        return <p>There's so much room for activities!</p>;
-    }
-  };
-
   return (
     <div
       className={`window ${focusedProgram !== name ? "unfocused" : ""}`}
@@ -117,54 +104,58 @@ const Program = ({
       </header>
 
       <div className="window-body">
-        <div className="actions">
-          <div className="com__function_bar">
-            <div>File</div>
-            <div>Edit</div>
-            <div>View</div>
-            <div>Help</div>
-          </div>
-          <img src="/windows-tab.png" />
-        </div>
-        {folderDetails && (
-          <div className="folder-details">
-            <img src="/arrow.png" />
-            <p>Back</p>
-            <div className="com__function_bar__arrow" />
-            <img src="/arrow.png" style={{ transform: "scaleX(-1)" }} />
-            <div className="com__function_bar__arrow" />
-            <img src="/yeah.png" />
-            <div className="com__function_bar__separate" />
-            <img src="/lupa.ico" />
-            <p>Search</p>
-            <img src="/folder_clean.ico" />
-            <p>Folders</p>
-            <div className="com__function_bar__separate" />
-            <img src="/pastinha.ico" />
-            <div className="com__function_bar__arrow" />
-          </div>
+        {completeHeader && (
+          <>
+            <div className="actions">
+              <div className="com__function_bar">
+                <div>File</div>
+                <div>Edit</div>
+                <div>View</div>
+                <div>Help</div>
+              </div>
+              <img src="/windows-tab.png" />
+            </div>
+            <div className="folder-details">
+              <img src="/arrow.png" />
+              <p>Back</p>
+              <div className="com__function_bar__arrow" />
+              <img src="/arrow.png" style={{ transform: "scaleX(-1)" }} />
+              <div className="com__function_bar__arrow" />
+              <img src="/yeah.png" />
+              <div className="com__function_bar__separate" />
+              <img src="/lupa.ico" />
+              <p>Search</p>
+              <img src="/folder_clean.ico" />
+              <p>Folders</p>
+              <div className="com__function_bar__separate" />
+              <img src="/pastinha.ico" />
+              <div className="com__function_bar__arrow" />
+            </div>
+            <div className="address">
+              <p className="addressLabel">Address</p>
+              <span className="address_bar">
+                <div className="leftside">
+                  <img src={icon} />
+                  <p>{address}</p>
+                </div>
+                <div className="rightside">
+                  <img src="/little-down-arrow.png" />
+                </div>
+              </span>
+              <img className="square-arrow" src="/square-arrow.ico" />
+              <p>Go</p>
+            </div>
+          </>
         )}
-        <div className="address">
-          <p className="addressLabel">Address</p>
-          <span className="address_bar">
-            <div className="leftside">
-              <img src={icon} />
-              <p>{address}</p>
-            </div>
-            <div className="rightside">
-              <img src="/little-down-arrow.png" />
-            </div>
-          </span>
-          <img className="square-arrow" src="/square-arrow.ico" />
-          <p>Go</p>
-        </div>
         <div className="content">
-          <div className="content-sidebar">
-            {sidebarCards.map((card, index) => (
-              <SidebarCard key={index} title={card.title} rows={card.rows} />
-            ))}
-          </div>
-          {renderContent()}
+          {completeHeader && (
+            <div className="content-sidebar">
+              {sidebarCards.map((card, index) => (
+                <SidebarCard key={index} title={card.title} rows={card.rows} />
+              ))}
+            </div>
+          )}
+          <div>{contents}</div>
         </div>
       </div>
     </div>

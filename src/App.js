@@ -1,10 +1,8 @@
-import './App.css';
-import Desktop from './Desktop';
+import "./App.css";
+import Desktop from "./desktop/Desktop";
 
 function App() {
-  return (
-    <Desktop/>
-  );
+  return <Desktop />;
 }
 
 export default App;

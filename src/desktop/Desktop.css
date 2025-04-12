@@ -5,8 +5,10 @@
   background-image: url("/public/background1080.jpg");
   background-size: cover;
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-  grid-auto-flow: column;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 80px;
+  gap: 20px;
   padding: 20px;
+  justify-items: start;
+  align-content: start;
 }
