@@ -78,7 +78,9 @@ const Desktop = () => {
               onMinimize={() => handleMinimizeItem(item.name)}
               setFocusedProgram={(name) => setFocusedProgram(name)}
               focusedProgram={focusedProgram}
-              style={{ zIndex: focusedProgram === item.name ? 1000 : index }}
+              style={{
+                zIndex: focusedProgram === item.name ? 20 : index + 1,
+              }}
               address={item.address}
               completeHeader={item.completeHeader}
             />

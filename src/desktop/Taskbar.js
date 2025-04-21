@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Taskbar.css";
 import StartMenu from "./StartMenu";
 
@@ -17,6 +17,7 @@ const Taskbar = ({
   );
   const [startButtonState, setStartButtonState] = useState("default");
   const [startMenu, setStartMenu] = useState(false);
+  const startMenuRef = useRef(null);
 
   const getStartButtonSrc = () => {
     switch (startButtonState) {
@@ -29,9 +30,25 @@ const Taskbar = ({
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        startMenuRef.current &&
+        !startMenuRef.current.contains(event.target)
+      ) {
+        setStartMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <footer className="taskbar">
-      <div className="left">
+      <div className="left" ref={startMenuRef}>
         {startMenu && <StartMenu />}
         <img
           className="start"

@@ -25,6 +25,7 @@
   left: 0px;
   display: flex;
   justify-content: space-between;
+  z-index: 200;
 }
 
 .start {
