@@ -56,16 +56,6 @@ export const icons = [
     contents: <Resume />,
   },
   {
-    name: "About Me",
-    icon: "./file.ico",
-    address: "C:\\Users\\Pedro\\Desktop\\About Me",
-    contents: (
-      <div className="projects">
-        <h1>About Me</h1>
-      </div>
-    ),
-  },
-  {
     name: "Paint",
     icon: "./paint.png",
     contents: <iframe src="https://jspaint.app" width="800px" height="500px" />,

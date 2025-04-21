@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Taskbar.css";
+import StartMenu from "./StartMenu";
 
 const Taskbar = ({
   programs,
@@ -14,7 +15,8 @@ const Taskbar = ({
       hour12: true,
     })
   );
-  const [startButtonState, setStartButtonState] = useState("default"); // default, hover, pressed
+  const [startButtonState, setStartButtonState] = useState("default");
+  const [startMenu, setStartMenu] = useState(false);
 
   const getStartButtonSrc = () => {
     switch (startButtonState) {
@@ -30,6 +32,7 @@ const Taskbar = ({
   return (
     <footer className="taskbar">
       <div className="left">
+        {startMenu && <StartMenu />}
         <img
           className="start"
           src={getStartButtonSrc()}
@@ -38,6 +41,7 @@ const Taskbar = ({
           onMouseLeave={() => setStartButtonState("default")}
           onMouseDown={() => setStartButtonState("pressed")}
           onMouseUp={() => setStartButtonState("hover")}
+          onClick={() => setStartMenu(!startMenu)}
         />
         {programs.map((program, index) => (
           <div
