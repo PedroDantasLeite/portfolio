@@ -2,9 +2,9 @@ import React from "react";
 import "./SidebarCard.css";
 import SidebarCardRow from "./SidebarCardRow";
 
-const SidebarCard = ({ key, title, rows }) => {
+const SidebarCard = ({ cardKey, title, rows }) => {
   return (
-    <div className="sidebar-card">
+    <div className="sidebar-card" key={cardKey}>
       <div className="sidebar-card-header">{title}</div>
       <div className="sidebar-card-content">
         {rows.map((row, index) => (

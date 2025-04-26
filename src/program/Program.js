@@ -151,7 +151,12 @@ const Program = ({
           {completeHeader && (
             <div className="content-sidebar">
               {sidebarCards.map((card, index) => (
-                <SidebarCard key={index} title={card.title} rows={card.rows} />
+                <SidebarCard
+                  cardIndex={index}
+                  title={card.title}
+                  rows={card.rows}
+                  key={index}
+                />
               ))}
             </div>
           )}

@@ -1,4 +1,6 @@
 import Resume from "./contents/Resume";
+import MyStuff from "./contents/MyStuff";
+import AboutMe from "./contents/AboutMe";
 
 const systemTask = {
   title: "System Tasks",
@@ -40,14 +42,10 @@ export const sidebarCards = [systemTask, otherPlaces];
 
 export const icons = [
   {
-    name: "Projects",
+    name: "My Stuff",
     icon: "./file.ico",
-    address: "C:\\Users\\Pedro\\Desktop\\Projects",
-    contents: (
-      <div className="projects">
-        <h1>Projects</h1>
-      </div>
-    ),
+    address: "C:\\Users\\Pedro\\Desktop\\My Stuff",
+    contents: <MyStuff />,
   },
   {
     name: "Resume",
@@ -60,5 +58,20 @@ export const icons = [
     icon: "./paint.png",
     contents: <iframe src="https://jspaint.app" width="800px" height="500px" />,
     completeHeader: false,
+  },
+];
+
+export const myStuffContents = [
+  {
+    name: "Resume",
+    icon: "./text.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\Resume",
+    contents: <Resume />,
+  },
+  {
+    name: "About me",
+    icon: "./about-me.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\About Me",
+    contents: <AboutMe />,
   },
 ];

@@ -80,6 +80,7 @@
   margin-top: 2px;
   gap: 0.25rem;
   user-select: none;
+  cursor: pointer;
   & img {
     height: 15px;
     width: 15px;
