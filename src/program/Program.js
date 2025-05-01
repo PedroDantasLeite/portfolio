@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Program.css";
-import Resume from "../contents/Resume";
 import SidebarCard from "./SidebarCard";
 import { sidebarCards } from "../constants";
+import ProgramHeader from "./ProgramHeader";
+import ProgramToolbar from "./ProgramToolbar";
+import MyStuff from "../contents/MyStuff";
 
 const Program = ({
   name,
@@ -23,6 +25,8 @@ const Program = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [lastMousePosition, setLastMousePosition] = useState({ x: 0, y: 0 });
+  const [myStuffSelectedContent, setMyStuffSelectedContent] = useState(null);
+  const handleMyStuffBack = () => setMyStuffSelectedContent(null);
 
   const handleMouseDown = (e) => {
     setFocusedProgram(name);
@@ -66,6 +70,18 @@ const Program = ({
     };
   }, [isDragging]);
 
+  const renderContents = () => {
+    if (name === "My Stuff") {
+      return (
+        <MyStuff
+          selectedContent={myStuffSelectedContent}
+          setSelectedContent={setMyStuffSelectedContent}
+        />
+      );
+    }
+    return contents;
+  };
+
   return (
     <div
       className={`window ${focusedProgram !== name ? "unfocused" : ""}`}
@@ -76,76 +92,25 @@ const Program = ({
       }}
       onMouseDown={handleMouseDown}
     >
-      <div
-        className={`title-bar-background ${
-          focusedProgram !== name ? "unfocused" : ""
-        } `}
+      <ProgramHeader
+        name={name}
+        icon={icon}
+        onClose={onClose}
+        onMinimize={onMinimize}
+        focusedProgram={focusedProgram}
+        handleMouseDown={handleMouseDown}
       />
-      <header className="title-bar" onMouseDown={handleMouseDown}>
-        <div className="title-bar-text" style={{ userSelect: "none" }}>
-          <img src={icon} />
-          {name}
-        </div>
-        <div
-          className={`title-bar-controls ${
-            focusedProgram !== name ? "unfocused" : ""
-          }`}
-        >
-          <button aria-label="Minimize" onClick={onMinimize}>
-            <img src="/small.png" />
-          </button>
-          <button aria-label="Maximize">
-            <img src="/big.png" />
-          </button>
-          <button aria-label="Close" onClick={onClose}>
-            <img src="/close.png" />
-          </button>
-        </div>
-      </header>
-
       <div className="window-body">
         {completeHeader && (
-          <>
-            <div className="actions">
-              <div className="com__function_bar">
-                <div>File</div>
-                <div>Edit</div>
-                <div>View</div>
-                <div>Help</div>
-              </div>
-              <img src="/windows-tab.png" />
-            </div>
-            <div className="folder-details">
-              <img src="/arrow.png" />
-              <p>Back</p>
-              <div className="com__function_bar__arrow" />
-              <img src="/arrow.png" style={{ transform: "scaleX(-1)" }} />
-              <div className="com__function_bar__arrow" />
-              <img src="/yeah.png" />
-              <div className="com__function_bar__separate" />
-              <img src="/lupa.ico" />
-              <p>Search</p>
-              <img src="/folder_clean.ico" />
-              <p>Folders</p>
-              <div className="com__function_bar__separate" />
-              <img src="/pastinha.ico" />
-              <div className="com__function_bar__arrow" />
-            </div>
-            <div className="address">
-              <p className="addressLabel">Address</p>
-              <span className="address_bar">
-                <div className="leftside">
-                  <img src={icon} />
-                  <p>{address}</p>
-                </div>
-                <div className="rightside">
-                  <img src="/little-down-arrow.png" />
-                </div>
-              </span>
-              <img className="square-arrow" src="/square-arrow.ico" />
-              <p>Go</p>
-            </div>
-          </>
+          <ProgramToolbar
+            icon={icon}
+            address={address}
+            onBack={
+              name === "My Stuff" && myStuffSelectedContent
+                ? handleMyStuffBack
+                : undefined
+            }
+          />
         )}
         <div className="content">
           {completeHeader && (
@@ -160,7 +125,7 @@ const Program = ({
               ))}
             </div>
           )}
-          <div>{contents}</div>
+          <div>{renderContents()}</div>
         </div>
       </div>
     </div>

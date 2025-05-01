@@ -56,7 +56,14 @@ export const icons = [
   {
     name: "Paint",
     icon: "./paint.png",
-    contents: <iframe src="https://jspaint.app" width="800px" height="500px" />,
+    contents: (
+      <iframe
+        src="https://jspaint.app"
+        width="800px"
+        height="500px"
+        title="Paint"
+      />
+    ),
     completeHeader: false,
   },
 ];
@@ -66,12 +73,16 @@ export const myStuffContents = [
     name: "Resume",
     icon: "./text.ico",
     address: "C:\\Users\\Pedro\\Desktop\\Resume",
+    next: "resume",
+    previous: "my-stuff",
     contents: <Resume />,
   },
   {
     name: "About me",
     icon: "./about-me.ico",
     address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\About Me",
+    next: "about-me",
+    previous: "my-stuff",
     contents: <AboutMe />,
   },
 ];

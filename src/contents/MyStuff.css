@@ -11,8 +11,20 @@
   align-items: center;
   gap: 2px;
   font-size: 12px;
+  padding-right: 6px;
+  padding-left: 4px;
+  border: 1px solid transparent;
   & img {
     width: 3rem;
+  }
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 1px inset;
+  }
+  &:active {
+    border-color: rgb(185, 185, 185);
+    background-color: rgb(222, 222, 222);
+    box-shadow: rgba(255, 255, 255, 0.7) 0px -1px 1px inset;
   }
 }
 
