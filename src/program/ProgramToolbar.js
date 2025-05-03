@@ -1,4 +1,5 @@
 import React from "react";
+import "./Program.css";
 
 const ProgramToolbar = ({ icon, address, onBack }) => (
   <>
@@ -12,27 +13,39 @@ const ProgramToolbar = ({ icon, address, onBack }) => (
       <img src="/windows-tab.png" />
     </div>
     <div className="folder-details">
-      <img
-        src="/arrow.png"
-        style={{ cursor: onBack ? "pointer" : "default" }}
-        onClick={onBack}
-        alt="Back"
-      />
-      <p style={{ cursor: onBack ? "pointer" : "default" }} onClick={onBack}>
-        Back
-      </p>
-      <div className="com__function_bar__arrow" />
-      <img src="/arrow.png" style={{ transform: "scaleX(-1)" }} />
-      <div className="com__function_bar__arrow" />
-      <img src="/yeah.png" />
+      <div className="omg">
+        <img
+          src="/arrow.png"
+          style={{ cursor: onBack ? "pointer" : "default" }}
+          onClick={onBack}
+          alt="Back"
+        />
+        <p style={{ cursor: onBack ? "pointer" : "default" }} onClick={onBack}>
+          Back
+        </p>
+        <div className="com__function_bar__arrow" />
+      </div>
+      <div className="omg">
+        <img src="/arrow.png" style={{ transform: "scaleX(-1)" }} />
+        <div className="com__function_bar__arrow" />
+      </div>
+      <div className="omg">
+        <img src="/yeah.png" />
+      </div>
       <div className="com__function_bar__separate" />
-      <img src="/lupa.ico" />
-      <p>Search</p>
-      <img src="/folder_clean.ico" />
-      <p>Folders</p>
+      <div className="omg">
+        <img src="/lupa.ico" />
+        <p>Search</p>
+      </div>
+      <div className="omg">
+        <img src="/folder_clean.ico" />
+        <p>Folders</p>
+      </div>
       <div className="com__function_bar__separate" />
-      <img src="/pastinha.ico" />
-      <div className="com__function_bar__arrow" />
+      <div className="omg">
+        <img src="/pastinha.ico" />
+        <div className="com__function_bar__arrow" />
+      </div>
     </div>
     <div className="address">
       <p className="addressLabel">Address</p>

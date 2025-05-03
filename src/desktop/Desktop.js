@@ -3,10 +3,10 @@ import "./Desktop.css";
 import Taskbar from "./Taskbar";
 import Icon from "./Icon";
 import Program from "../program/Program";
-import { icons } from "../constants";
+import { desktopIcons } from "../constants";
 
 const Desktop = () => {
-  const iconRefs = useRef(icons.map(() => React.createRef()));
+  const iconRefs = useRef(desktopIcons.map(() => React.createRef()));
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [openedItems, setOpenedItems] = useState([]);
   const [focusedProgram, setFocusedProgram] = useState(null);
@@ -17,7 +17,7 @@ const Desktop = () => {
 
   const handleIconDoubleClick = (index, name) => {
     setFocusedProgram(name);
-    const icon = icons[index];
+    const icon = desktopIcons[index];
     const existingItem = openedItems.find((item) => item.name === icon.name);
 
     existingItem
@@ -54,7 +54,7 @@ const Desktop = () => {
 
   return (
     <div className="desktop" onClick={handleDesktopClick}>
-      {icons.map((icon, index) => (
+      {desktopIcons.map((icon, index) => (
         <Icon
           key={index}
           name={icon.name}
@@ -74,6 +74,7 @@ const Desktop = () => {
               name={item.name}
               icon={item.icon}
               contents={item.contents}
+              folderItems={item.folderItems}
               onClose={() => handleCloseItem(index)}
               onMinimize={() => handleMinimizeItem(item.name)}
               setFocusedProgram={(name) => setFocusedProgram(name)}

@@ -4,12 +4,13 @@ import SidebarCard from "./SidebarCard";
 import { sidebarCards } from "../constants";
 import ProgramHeader from "./ProgramHeader";
 import ProgramToolbar from "./ProgramToolbar";
-import MyStuff from "../contents/MyStuff";
+import FolderView from "./FolderView";
 
 const Program = ({
   name,
   icon,
   contents,
+  folderItems,
   onClose,
   onMinimize,
   setFocusedProgram,
@@ -25,8 +26,10 @@ const Program = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [lastMousePosition, setLastMousePosition] = useState({ x: 0, y: 0 });
-  const [myStuffSelectedContent, setMyStuffSelectedContent] = useState(null);
-  const handleMyStuffBack = () => setMyStuffSelectedContent(null);
+
+  // Generic selected content state for folders
+  const [selectedContent, setSelectedContent] = useState(null);
+  const handleBack = () => setSelectedContent(null);
 
   const handleMouseDown = (e) => {
     setFocusedProgram(name);
@@ -70,12 +73,14 @@ const Program = ({
     };
   }, [isDragging]);
 
+  // Render folder or regular content
   const renderContents = () => {
-    if (name === "My Stuff") {
+    if (folderItems) {
       return (
-        <MyStuff
-          selectedContent={myStuffSelectedContent}
-          setSelectedContent={setMyStuffSelectedContent}
+        <FolderView
+          items={folderItems}
+          selectedContent={selectedContent}
+          setSelectedContent={setSelectedContent}
         />
       );
     }
@@ -105,11 +110,7 @@ const Program = ({
           <ProgramToolbar
             icon={icon}
             address={address}
-            onBack={
-              name === "My Stuff" && myStuffSelectedContent
-                ? handleMyStuffBack
-                : undefined
-            }
+            onBack={folderItems && selectedContent ? handleBack : undefined}
           />
         )}
         <div className="content">

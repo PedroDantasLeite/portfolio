@@ -1,7 +1,7 @@
 import Resume from "./contents/Resume";
-import MyStuff from "./contents/MyStuff";
 import AboutMe from "./contents/AboutMe";
 
+// Sidebar cards (reusable for all folders)
 const systemTask = {
   title: "System Tasks",
   rows: [
@@ -40,12 +40,36 @@ const otherPlaces = {
 
 export const sidebarCards = [systemTask, otherPlaces];
 
-export const icons = [
+// Scalable folder structure for "My Stuff"
+export const myStuffContents = [
+  {
+    name: "Resume",
+    icon: "./text.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\Resume",
+    contents: <Resume />,
+  },
+  {
+    name: "About me",
+    icon: "./about-me.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\About Me",
+    contents: <AboutMe />,
+  },
+  // Example for nested folders:
+  // {
+  //   name: "Projects",
+  //   icon: "./folder.ico",
+  //   address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\Projects",
+  //   folderItems: [...], // Array of items for this folder
+  // },
+];
+
+// Desktop icons, scalable for any folder or file
+export const desktopIcons = [
   {
     name: "My Stuff",
     icon: "./file.ico",
     address: "C:\\Users\\Pedro\\Desktop\\My Stuff",
-    contents: <MyStuff />,
+    folderItems: myStuffContents,
   },
   {
     name: "Resume",
@@ -65,24 +89,5 @@ export const icons = [
       />
     ),
     completeHeader: false,
-  },
-];
-
-export const myStuffContents = [
-  {
-    name: "Resume",
-    icon: "./text.ico",
-    address: "C:\\Users\\Pedro\\Desktop\\Resume",
-    next: "resume",
-    previous: "my-stuff",
-    contents: <Resume />,
-  },
-  {
-    name: "About me",
-    icon: "./about-me.ico",
-    address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\About Me",
-    next: "about-me",
-    previous: "my-stuff",
-    contents: <AboutMe />,
   },
 ];

@@ -1,9 +1,13 @@
-import React from "react";
-import "./MyStuff.css";
-import { myStuffContents } from "../constants";
+import React, { useState } from "react";
+import "./FolderView.css";
 
-const MyStuff = ({ selectedContent, setSelectedContent }) => {
-  const [localSelectedContent, localSetSelectedContent] = React.useState(null);
+const FolderView = ({
+  items,
+  selectedContent,
+  setSelectedContent,
+  renderContent,
+}) => {
+  const [localSelectedContent, localSetSelectedContent] = useState(null);
   const content =
     selectedContent !== undefined ? selectedContent : localSelectedContent;
   const setContent =
@@ -11,21 +15,21 @@ const MyStuff = ({ selectedContent, setSelectedContent }) => {
       ? setSelectedContent
       : localSetSelectedContent;
 
-  const handleIconDoubleClick = (item) => {
-    setContent(item);
-  };
+  const handleIconDoubleClick = (item) => setContent(item);
 
   if (content) {
     return (
       <div className="folder-content-detail">
-        <div className="folder-detail-content">{content.contents}</div>
+        <div className="folder-detail-content">
+          {renderContent ? renderContent(content) : content.contents}
+        </div>
       </div>
     );
   }
 
   return (
     <div className="folder-content-default">
-      {myStuffContents.map((item, index) => (
+      {items.map((item, index) => (
         <div
           key={index}
           className="folder-item"
@@ -39,4 +43,4 @@ const MyStuff = ({ selectedContent, setSelectedContent }) => {
   );
 };
 
-export default MyStuff;
+export default FolderView;
