@@ -1,0 +1,26 @@
+.that-classic-look {
+  background-color: #6375d6;
+  width: 512px;
+  height: 364px;
+  padding: 12px;
+  overflow-y: scroll;
+  color: #d6dff5;
+}
+
+.that-classic-look * {
+  margin: auto;
+}
+
+.me {
+  width: 16rem;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.soyyo {
+  margin-bottom: 6px;
+  font-weight: 400;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

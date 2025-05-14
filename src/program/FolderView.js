@@ -19,11 +19,9 @@ const FolderView = ({
 
   if (content) {
     return (
-      <div className="folder-content-detail">
-        <div className="folder-detail-content">
-          {renderContent ? renderContent(content) : content.contents}
-        </div>
-      </div>
+      <React.Fragment>
+        {renderContent ? renderContent(content) : content.contents}
+      </React.Fragment>
     );
   }
 

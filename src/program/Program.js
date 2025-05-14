@@ -73,7 +73,6 @@ const Program = ({
     };
   }, [isDragging]);
 
-  // Render folder or regular content
   const renderContents = () => {
     if (folderItems) {
       return (

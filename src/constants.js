@@ -1,5 +1,6 @@
 import Resume from "./contents/Resume";
 import AboutMe from "./contents/AboutMe";
+import Photos from "./contents/Photos";
 
 // Sidebar cards (reusable for all folders)
 const systemTask = {
@@ -53,6 +54,12 @@ export const myStuffContents = [
     icon: "./about-me.ico",
     address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\About Me",
     contents: <AboutMe />,
+  },
+  {
+    name: "Photos",
+    icon: "./fotita.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\Photos",
+    contents: <Photos />,
   },
   // Example for nested folders:
   // {

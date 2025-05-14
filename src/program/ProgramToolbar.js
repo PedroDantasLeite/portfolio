@@ -13,16 +13,9 @@ const ProgramToolbar = ({ icon, address, onBack }) => (
       <img src="/windows-tab.png" />
     </div>
     <div className="folder-details">
-      <div className="omg">
-        <img
-          src="/arrow.png"
-          style={{ cursor: onBack ? "pointer" : "default" }}
-          onClick={onBack}
-          alt="Back"
-        />
-        <p style={{ cursor: onBack ? "pointer" : "default" }} onClick={onBack}>
-          Back
-        </p>
+      <div className="omg" onClick={onBack}>
+        <img src="/arrow.png" alt="Back" />
+        <p>Back</p>
         <div className="com__function_bar__arrow" />
       </div>
       <div className="omg">

@@ -122,6 +122,7 @@
   display: flex;
   align-items: center;
   padding-right: 3px;
+  padding-left: 1px;
   &:hover {
     border-color: rgba(0, 0, 0, 0.1);
     box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 1px inset;
@@ -129,7 +130,6 @@
   &:active {
     border-color: rgb(185, 185, 185);
     background-color: rgb(222, 222, 222);
-    box-shadow: rgba(255, 255, 255, 0.7) 0px -1px 1px inset;
   }
 }
 
