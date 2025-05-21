@@ -44,12 +44,6 @@ export const sidebarCards = [systemTask, otherPlaces];
 // Scalable folder structure for "My Stuff"
 export const myStuffContents = [
   {
-    name: "Resume",
-    icon: "./text.ico",
-    address: "C:\\Users\\Pedro\\Desktop\\Resume",
-    contents: <Resume />,
-  },
-  {
     name: "About me",
     icon: "./about-me.ico",
     address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\About Me",
@@ -60,6 +54,12 @@ export const myStuffContents = [
     icon: "./fotita.ico",
     address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\Photos",
     contents: <Photos />,
+  },
+  {
+    name: "Resume",
+    icon: "./text.ico",
+    address: "C:\\Users\\Pedro\\Desktop\\Resume",
+    contents: <Resume />,
   },
   // Example for nested folders:
   // {
@@ -96,5 +96,40 @@ export const desktopIcons = [
       />
     ),
     completeHeader: false,
+  },
+];
+
+export const myPhotos = [
+  {
+    label: "noronha1.jpeg",
+    image: "./photos/1.jpeg",
+  },
+  {
+    label: "bathroom?.jpeg",
+    image: "./photos/2.jpeg",
+  },
+  {
+    label: "noronha3.jpeg",
+    image: "./photos/3.jpeg",
+  },
+  {
+    label: "untosum.jpeg",
+    image: "./photos/4.jpeg",
+  },
+  {
+    label: "<3.jpeg",
+    image: "./photos/5.jpeg",
+  },
+  {
+    label: "dontlikeroads.jpeg",
+    image: "./photos/6.jpeg",
+  },
+  {
+    label: "oldpartner.jpeg",
+    image: "./photos/7.jpeg",
+  },
+  {
+    label: "peggy18.jpeg",
+    image: "./photos/8.jpeg",
   },
 ];

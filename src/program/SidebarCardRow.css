@@ -5,6 +5,9 @@
   display: flex;
   gap: 4px;
 }
+.sidebar-card-row {
+  white-space: nowrap;
+}
 
 .sidebar-card-row:hover {
   cursor: pointer;
