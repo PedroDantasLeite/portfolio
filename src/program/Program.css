@@ -11,6 +11,12 @@
   }
 }
 
+.window-maximized {
+  padding: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
 .window-body {
   margin-top: 25px;
   position: relative;
@@ -19,6 +25,7 @@
     rgb(237, 237, 229) 0%,
     rgb(237, 232, 205) 100%
   );
+  height: 100%;
 }
 
 .actions {
@@ -109,7 +116,6 @@
   font-size: 11px;
   border-top: 1px solid white;
   flex-shrink: 0;
-  height: 100%;
   & img {
     width: 1.35rem;
     margin-left: 2px;

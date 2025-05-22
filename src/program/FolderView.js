@@ -26,17 +26,19 @@ const FolderView = ({
   }
 
   return (
-    <div className="folder-content-default">
-      {items.map((item, index) => (
-        <div
-          key={index}
-          className="folder-item"
-          onDoubleClick={() => handleIconDoubleClick(item)}
-        >
-          <img src={item.icon} alt={item.name} className="folder-item-icon" />
-          <span className="folder-item-name">{item.name}</span>
-        </div>
-      ))}
+    <div>
+      <div className="folder-content-default">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="folder-item"
+            onDoubleClick={() => handleIconDoubleClick(item)}
+          >
+            <img src={item.icon} alt={item.name} className="folder-item-icon" />
+            <span className="folder-item-name">{item.name}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

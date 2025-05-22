@@ -26,6 +26,11 @@ const Program = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [lastMousePosition, setLastMousePosition] = useState({ x: 0, y: 0 });
+  const [isMaximized, setIsMaximized] = useState(false);
+  const [prevState, setPrevState] = useState({
+    x: position.x,
+    y: position.y,
+  });
 
   // Generic selected content state for folders
   const [selectedContent, setSelectedContent] = useState(null);
@@ -86,12 +91,28 @@ const Program = ({
     return contents;
   };
 
+  const handleMaximize = () => {
+    if (!isMaximized) {
+      setPrevState({
+        position: { ...position },
+      });
+      setPosition({ x: 0, y: 0 });
+    } else {
+      if (prevState.position) setPosition(prevState.position);
+    }
+    setIsMaximized(!isMaximized);
+  };
+
   return (
     <div
-      className={`window ${focusedProgram !== name ? "unfocused" : ""}`}
+      className={`window ${focusedProgram !== name ? "unfocused" : ""} ${
+        isMaximized ? "window-maximized" : ""
+      }`}
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,
+        width: isMaximized ? "100vw" : undefined,
+        height: isMaximized ? "100vh" : undefined,
         ...style,
       }}
       onMouseDown={handleMouseDown}
@@ -101,6 +122,7 @@ const Program = ({
         icon={icon}
         onClose={onClose}
         onMinimize={onMinimize}
+        handleMaximize={handleMaximize}
         focusedProgram={focusedProgram}
         handleMouseDown={handleMouseDown}
       />
@@ -125,7 +147,7 @@ const Program = ({
               ))}
             </div>
           )}
-          <div>{renderContents()}</div>
+          {renderContents()}
         </div>
       </div>
     </div>

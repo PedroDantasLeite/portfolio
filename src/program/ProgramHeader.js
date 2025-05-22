@@ -7,6 +7,7 @@ const ProgramHeader = ({
   onMinimize,
   focusedProgram,
   handleMouseDown,
+  handleMaximize,
 }) => (
   <>
     <div
@@ -27,7 +28,7 @@ const ProgramHeader = ({
         <button aria-label="Minimize" onClick={onMinimize}>
           <img src="/small.png" />
         </button>
-        <button aria-label="Maximize">
+        <button aria-label="Maximize" onClick={() => handleMaximize()}>
           <img src="/big.png" />
         </button>
         <button aria-label="Close" onClick={onClose}>

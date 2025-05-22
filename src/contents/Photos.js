@@ -57,8 +57,11 @@ const Photos = () => {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
+        gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
         gap: "16px",
+        width: "100%",
+        justifyItems: "center",
+        alignItems: "start",
       }}
     >
       {myPhotos.map((photo) => (
@@ -68,7 +71,7 @@ const Photos = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "flex-start",
           }}
           onClick={() => handleClick(photo.label)}
         >
