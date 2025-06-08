@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { myPhotos } from "../constants";
 import "./Photos.css";
+import PhotoView from "../program/PhotoView";
 
 const PhotoIcon = ({ photo, selected }) => {
   return (
@@ -45,13 +46,30 @@ const PhotoIcon = ({ photo, selected }) => {
   );
 };
 
-const Photos = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  console.log(selectedPhoto);
-
+// Make Photos a controlled component
+const Photos = ({
+  openedPhoto,
+  setOpenedPhoto,
+  selectedPhoto,
+  setSelectedPhoto,
+}) => {
   const handleClick = (label) => {
-    setSelectedPhoto(label);
+    setSelectedPhoto && setSelectedPhoto(label);
   };
+
+  const handleDoubleClick = (photo) => {
+    setOpenedPhoto && setOpenedPhoto(photo);
+  };
+
+  if (openedPhoto) {
+    return (
+      <PhotoView
+        src={openedPhoto.image}
+        alt={openedPhoto.label}
+        caption={openedPhoto.label}
+      />
+    );
+  }
 
   return (
     <div
@@ -74,6 +92,7 @@ const Photos = () => {
             justifyContent: "flex-start",
           }}
           onClick={() => handleClick(photo.label)}
+          onDoubleClick={() => handleDoubleClick(photo)}
         >
           <PhotoIcon photo={photo} selected={photo.label === selectedPhoto} />
         </div>

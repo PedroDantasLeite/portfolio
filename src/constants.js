@@ -41,7 +41,6 @@ const otherPlaces = {
 
 export const sidebarCards = [systemTask, otherPlaces];
 
-// Scalable folder structure for "My Stuff"
 export const myStuffContents = [
   {
     name: "About me",
@@ -53,7 +52,6 @@ export const myStuffContents = [
     name: "Photos",
     icon: "./fotita.ico",
     address: "C:\\Users\\Pedro\\Desktop\\My Stuff\\Photos",
-    contents: <Photos />,
   },
   {
     name: "Resume",
@@ -70,7 +68,6 @@ export const myStuffContents = [
   // },
 ];
 
-// Desktop icons, scalable for any folder or file
 export const desktopIcons = [
   {
     name: "My Stuff",

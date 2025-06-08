@@ -5,6 +5,7 @@ import { sidebarCards } from "../constants";
 import ProgramHeader from "./ProgramHeader";
 import ProgramToolbar from "./ProgramToolbar";
 import FolderView from "./FolderView";
+import Photos from "../contents/Photos";
 
 const Program = ({
   name,
@@ -32,9 +33,23 @@ const Program = ({
     y: position.y,
   });
 
-  // Generic selected content state for folders
   const [selectedContent, setSelectedContent] = useState(null);
-  const handleBack = () => setSelectedContent(null);
+
+  // Add these for Photos navigation
+  const [photosOpenedPhoto, setPhotosOpenedPhoto] = useState(null);
+  const [photosSelectedPhoto, setPhotosSelectedPhoto] = useState(null);
+
+  const handleBack = () => {
+    if (selectedContent && selectedContent.name === "Photos") {
+      if (photosOpenedPhoto) {
+        setPhotosOpenedPhoto(null); // Go from PhotoView to Photos grid
+      } else {
+        setSelectedContent(null); // Go from Photos grid to FolderView
+      }
+    } else {
+      setSelectedContent(null);
+    }
+  };
 
   const handleMouseDown = (e) => {
     setFocusedProgram(name);
@@ -80,6 +95,21 @@ const Program = ({
 
   const renderContents = () => {
     if (folderItems) {
+      if (selectedContent) {
+        // Special handling for Photos
+        if (selectedContent.name === "Photos") {
+          return (
+            <Photos
+              openedPhoto={photosOpenedPhoto}
+              setOpenedPhoto={setPhotosOpenedPhoto}
+              selectedPhoto={photosSelectedPhoto}
+              setSelectedPhoto={setPhotosSelectedPhoto}
+            />
+          );
+        }
+        // Other content
+        return selectedContent.contents;
+      }
       return (
         <FolderView
           items={folderItems}
